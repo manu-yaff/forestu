@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "level": 1,
+    "subject": "Matemáticas"
+  },
+  {
+    "id": 2,
+    "level": 1,
+    "subject": "Biología"
+  },
+  {
+    "id": 3,
+    "level": 1,
+    "subject": "Español"
+  },
+  {
+    "id": 4,
+    "level": 2,
+    "subject": "Matemáticas"
+  },
+  {
+    "id": 5,
+    "level": 2,
+    "subject": "Biología"
+  },
+  {
+    "id": 6,
+    "level": 2,
+    "subject": "Español"
+  },
+  {
+    "id": 7,
+    "level": 3,
+    "subject": "Matemáticas"
+  },
+  {
+    "id": 8,
+    "level": 3,
+    "subject": "Biología"
+  },
+  {
+    "id": 9,
+    "level": 3,
+    "subject": "Español"
+  }
+]
