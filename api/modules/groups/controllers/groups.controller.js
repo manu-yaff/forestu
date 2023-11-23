@@ -3,8 +3,8 @@ import groupsService from '../services/groups.service.js';
 
 async function findAll(_, res) {
   try {
-    const fileContent = await fileService.read('./groups.json');
-    res.send({ data: fileContent });
+    const data = await groupsService.findAll();
+    res.send({ data });
   } catch (error) {
     res.send({ error: error.message });
   }

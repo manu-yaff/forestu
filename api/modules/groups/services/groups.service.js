@@ -1,10 +1,22 @@
 import fileService from '../../files/file.service.js';
 import studentsService from '../../students/services/students.service.js';
 
+async function findAll() {
+  try {
+    const groups = await fileService.read('./groups.json');
+
+    return { groups };
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function findOne(id) {
   try {
     const groups = await fileService.read('./groups.json');
-    return groups.find((group) => group.id === id);
+    const group = groups.find((group) => group.id === id);
+
+    return { group };
   } catch (error) {
     throw error;
   }
@@ -19,9 +31,9 @@ async function findStudents(groupId) {
       })
       .map((student) => student.student_id);
 
-    const students = await studentsService.findAll();
+    const { group } = await findOne(groupId);
+    const { students } = await studentsService.findAll();
     const groupStudents = students.filter((student) => studentsIds.includes(student.id));
-    const group = await findOne(groupId);
 
     return {
       group,
@@ -32,4 +44,4 @@ async function findStudents(groupId) {
   }
 }
 
-export default { findOne, findStudents };
+export default { findAll, findOne, findStudents };
