@@ -14,7 +14,7 @@ app.get('/', async (_, res) => {
 });
 
 app.get('/groups', groupsController.findAll);
-// app.get('/groups/:id/students', groupsService.findStudents);
+app.get('/groups/:id/students', groupsController.findStudents);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

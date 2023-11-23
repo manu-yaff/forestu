@@ -1,6 +1,6 @@
 import fileService from '../../files/file.service.js';
 
-async function find() {
+async function findAll() {
   try {
     const students = await fileService.read('./students.json');
     return students;
@@ -9,4 +9,4 @@ async function find() {
   }
 }
 
-export default { find };
+export default { findAll };
