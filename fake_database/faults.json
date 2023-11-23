@@ -3,140 +3,140 @@
     "id": 1,
     "indicator": "Inasistencia",
     "date": "2023-11-09",
-    "studentId": 7,
+    "student_id": 7,
     "group_id": 3
   },
   {
     "id": 2,
     "indicator": "Puntualidad",
     "date": "2023-11-10",
-    "studentId": 14,
+    "student_id": 14,
     "group_id": 5
   },
   {
     "id": 3,
     "indicator": "Respeto",
     "date": "2023-11-11",
-    "studentId": 9,
+    "student_id": 9,
     "group_id": 2
   },
   {
     "id": 4,
     "indicator": "Higiene Personal",
     "date": "2023-11-12",
-    "studentId": 5,
+    "student_id": 5,
     "group_id": 8
   },
   {
     "id": 5,
     "indicator": "Inasistencia",
     "date": "2023-11-13",
-    "studentId": 17,
+    "student_id": 17,
     "group_id": 1
   },
   {
     "id": 6,
     "indicator": "Puntualidad",
     "date": "2023-11-14",
-    "studentId": 2,
+    "student_id": 2,
     "group_id": 6
   },
   {
     "id": 7,
     "indicator": "Respeto",
     "date": "2023-11-15",
-    "studentId": 19,
+    "student_id": 19,
     "group_id": 7
   },
   {
     "id": 8,
     "indicator": "Higiene Personal",
     "date": "2023-11-16",
-    "studentId": 11,
+    "student_id": 11,
     "group_id": 4
   },
   {
     "id": 9,
     "indicator": "Inasistencia",
     "date": "2023-11-17",
-    "studentId": 1,
+    "student_id": 1,
     "group_id": 2
   },
   {
     "id": 10,
     "indicator": "Puntualidad",
     "date": "2023-11-18",
-    "studentId": 10,
+    "student_id": 10,
     "group_id": 9
   },
   {
     "id": 11,
     "indicator": "Respeto",
     "date": "2023-11-19",
-    "studentId": 20,
+    "student_id": 20,
     "group_id": 1
   },
   {
     "id": 12,
     "indicator": "Higiene Personal",
     "date": "2023-11-20",
-    "studentId": 15,
+    "student_id": 15,
     "group_id": 3
   },
   {
     "id": 13,
     "indicator": "Inasistencia",
     "date": "2023-11-21",
-    "studentId": 6,
+    "student_id": 6,
     "group_id": 5
   },
   {
     "id": 14,
     "indicator": "Puntualidad",
     "date": "2023-11-22",
-    "studentId": 18,
+    "student_id": 18,
     "group_id": 8
   },
   {
     "id": 15,
     "indicator": "Respeto",
     "date": "2023-11-23",
-    "studentId": 16,
+    "student_id": 16,
     "group_id": 6
   },
   {
     "id": 16,
     "indicator": "Higiene Personal",
     "date": "2023-11-24",
-    "studentId": 4,
+    "student_id": 4,
     "group_id": 7
   },
   {
     "id": 17,
     "indicator": "Inasistencia",
     "date": "2023-11-25",
-    "studentId": 12,
+    "student_id": 12,
     "group_id": 9
   },
   {
     "id": 18,
     "indicator": "Puntualidad",
     "date": "2023-11-26",
-    "studentId": 3,
+    "student_id": 3,
     "group_id": 1
   },
   {
     "id": 19,
     "indicator": "Respeto",
     "date": "2023-11-27",
-    "studentId": 8,
+    "student_id": 8,
     "group_id": 2
   },
   {
     "id": 20,
     "indicator": "Higiene Personal",
     "date": "2023-11-28",
-    "studentId": 13,
+    "student_id": 13,
     "group_id": 4
   }
 ]
