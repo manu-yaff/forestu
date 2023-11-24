@@ -3,14 +3,14 @@
     "id": 1,
     "indicator": "Inasistencia",
     "date": "2023-11-09",
-    "student_id": 7,
+    "student_id": 1,
     "group_id": 3
   },
   {
     "id": 2,
     "indicator": "Puntualidad",
     "date": "2023-11-10",
-    "student_id": 14,
+    "student_id": 1,
     "group_id": 5
   },
   {
@@ -87,7 +87,7 @@
     "id": 13,
     "indicator": "Inasistencia",
     "date": "2023-11-21",
-    "student_id": 6,
+    "student_id": 1,
     "group_id": 5
   },
   {

@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import groupsController from './modules/groups/controllers/groups.controller.js';
+import studentsController from './modules/students/students.controller.js';
 
 const app = express();
 const port = 3000;
@@ -15,6 +16,10 @@ app.get('/', async (_, res) => {
 
 app.get('/groups', groupsController.findAll);
 app.get('/groups/:id/students', groupsController.findStudents);
+
+app.get('/students/:id', studentsController.findOne);
+app.get('/students/:id/periods', studentsController.findPeriods);
+app.get('/students/:id/faults', studentsController.findFaults);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
