@@ -33,4 +33,24 @@ async function findFaults(req, res) {
   }
 }
 
-export default { findOne, findPeriods, findFaults };
+async function createFault(req, res) {
+  const { id: studentId } = req.params;
+  const { indicator, date, group_id: groupId } = req.body;
+
+  const createFaultPayload = {
+    id: 'random-string',
+    student_id: +studentId,
+    indicator,
+    date,
+    group_id: +groupId,
+  };
+
+  try {
+    const data = await studentsService.createFault(createFaultPayload);
+    res.send({ data });
+  } catch (error) {
+    res.send({ error: error.message });
+  }
+}
+
+export default { findOne, findPeriods, findFaults, createFault };

@@ -73,4 +73,38 @@ async function findFaults(studentId) {
   }
 }
 
-export default { findAll, findOne, findPeriods, findFaults };
+async function updateStudentStatus(studentId, status) {
+  try {
+    const { student: targetStudent } = await findOne(studentId);
+    const updatedStudent = { ...targetStudent, status };
+    const { students } = await findAll();
+    const updatedStudentsList = students.map((student) =>
+      student.id === targetStudent.id ? updatedStudent : student
+    );
+
+    await fileService.overwrite('./students.json', updatedStudentsList);
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function createFault(faultPayload) {
+  const { student_id } = faultPayload;
+
+  try {
+    const createdFault = await fileService.write('./faults.json', faultPayload);
+
+    const faults = await faultsService.findAll();
+    const studentFaults = faults.filter((fault) => fault.student_id === student_id);
+
+    const studentStatus = studentFaults.length >= 3 ? 'red' : 'yellow';
+
+    await updateStudentStatus(student_id, studentStatus);
+
+    return { fault: createdFault };
+  } catch (error) {
+    throw error;
+  }
+}
+
+export default { findAll, findOne, findPeriods, findFaults, createFault };
