@@ -44,4 +44,36 @@ async function findStudents(groupId) {
   }
 }
 
-export default { findAll, findOne, findStudents };
+function countByStatus(studentsList) {
+  const total = studentsList.length;
+
+  const red = studentsList.reduce((sum, student) => {
+    if (student.status && student.status === 'red') return sum + 1;
+    return sum;
+  }, 0);
+
+  const yellow = studentsList.reduce((sum, student) => {
+    if (student.status && student.status === 'yellow') return sum + 1;
+    return sum;
+  }, 0);
+
+  const green = total - (red + yellow);
+
+  return [red, yellow, green];
+}
+
+async function findStudentsByStatus() {
+  const { groups } = await findAll();
+
+  const groupsWithStatus = await Promise.all(
+    groups.map(async (group) => {
+      const { students } = await findStudents(group.id);
+      const [studentsInRed, studentsInYellow, studentsInGreen] = countByStatus(students);
+
+      return { ...group, red: studentsInRed, yellow: studentsInYellow, green: studentsInGreen };
+    })
+  );
+  return { groups: groupsWithStatus };
+}
+
+export default { findAll, findOne, findStudents, findStudentsByStatus };

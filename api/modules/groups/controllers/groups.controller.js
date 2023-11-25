@@ -1,10 +1,17 @@
 import fileService from '../../files/file.service.js';
 import groupsService from '../services/groups.service.js';
 
-async function findAll(_, res) {
+async function findAll(req, res) {
+  const { include_status } = req.query;
+
   try {
-    const data = await groupsService.findAll();
-    res.send({ data });
+    if (include_status) {
+      const data = await groupsService.findStudentsByStatus();
+      res.send({ data });
+    } else {
+      const data = await groupsService.findAll();
+      res.send({ data });
+    }
   } catch (error) {
     res.send({ error: error.message });
   }
