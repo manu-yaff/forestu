@@ -1,3 +1,4 @@
+import faultsService from '../../faults/faults.service.js';
 import fileService from '../../files/file.service.js';
 import studentsService from '../../students/services/students.service.js';
 
@@ -22,7 +23,13 @@ async function findOne(id) {
   }
 }
 
-async function findStudents(groupId) {
+async function findStudents(groupId, includeFaults) {
+  const findStudentFaults = async (studentId) => {
+    const faults = await faultsService.findAll();
+    const studentFaults = faults.filter((fault) => fault.student_id === studentId);
+    return studentFaults;
+  };
+
   try {
     const fileStudentsJson = await fileService.read('./students_groups.json');
     const studentsIds = fileStudentsJson
@@ -34,6 +41,20 @@ async function findStudents(groupId) {
     const { group } = await findOne(groupId);
     const { students } = await studentsService.findAll();
     const groupStudents = students.filter((student) => studentsIds.includes(student.id));
+
+    if (includeFaults) {
+      const studentsWithFaults = await Promise.all(
+        groupStudents.map(async (student) => ({
+          ...student,
+          faults: await findStudentFaults(student.id),
+        }))
+      );
+
+      return {
+        group,
+        students: studentsWithFaults,
+      };
+    }
 
     return {
       group,

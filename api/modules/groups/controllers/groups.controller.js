@@ -19,8 +19,10 @@ async function findAll(req, res) {
 
 async function findStudents(req, res) {
   const { id: groupId } = req.params;
+  const { include_faults } = req.query;
+
   try {
-    const data = await groupsService.findStudents(+groupId);
+    const data = await groupsService.findStudents(+groupId, include_faults);
     res.send({ data });
   } catch (error) {
     res.send({ error: error.message });
