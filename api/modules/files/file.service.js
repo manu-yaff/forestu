@@ -7,7 +7,7 @@ async function read(relativePath) {
     const filePath = new URL(relativePath, DB_PATH).pathname;
     const fileContent = await fs.readFile(filePath, 'utf-8');
 
-    return JSON.parse(fileContent);
+    return JSON.parse(fileContent || JSON.stringify([]));
   } catch (error) {
     throw error;
   }
