@@ -44,22 +44,20 @@ async function findFaults(studentId) {
         return {
           ...store,
           [indicator]: {
-            status: 'yellow',
-            faults: 1,
-            dates: [date],
+            numberFaults: 1,
+            faults: [...[{ indicator, date }]],
           },
         };
       }
 
-      const { faults, dates } = store[indicator];
-      const newFaults = faults + 1;
+      const { numberFaults, faults } = store[indicator];
+      const newFaults = numberFaults + 1;
 
       return {
         ...store,
         [indicator]: {
-          status: newFaults > 2 ? 'red' : 'yellow',
-          faults: newFaults,
-          dates: [...dates, date],
+          numberFaults: newFaults,
+          faults: [...faults, { indicator, date }],
         },
       };
     }, {});
