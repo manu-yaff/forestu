@@ -36,7 +36,6 @@ async function overwrite(relativePath, payload) {
   try {
     const filePath = new URL(relativePath, DB_PATH).pathname;
     const jsonFormattedPayload = JSON.stringify(payload, null, 2);
-    console.log(jsonFormattedPayload);
 
     await fs.writeFile(filePath, jsonFormattedPayload, 'utf-8');
   } catch (error) {

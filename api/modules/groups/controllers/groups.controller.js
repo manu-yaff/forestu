@@ -17,6 +17,16 @@ async function findAll(req, res) {
   }
 }
 
+async function findOne(req, res) {
+  const { id } = req.params;
+  try {
+    const data = await groupsService.findOne(+id);
+    res.send({ data });
+  } catch (error) {
+    res.send({ error: error.message });
+  }
+}
+
 async function findStudents(req, res) {
   const { id: groupId } = req.params;
   const { include_faults } = req.query;
@@ -29,4 +39,4 @@ async function findStudents(req, res) {
   }
 }
 
-export default { findAll, findStudents };
+export default { findAll, findStudents, findOne };

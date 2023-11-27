@@ -17,6 +17,7 @@ app.get('/', async (_, res) => {
 });
 
 app.get('/groups', groupsController.findAll);
+app.get('/groups/:id', groupsController.findOne);
 app.get('/groups/:id/students', groupsController.findStudents);
 
 app.get('/students/:id', studentsController.findOne);

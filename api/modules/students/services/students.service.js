@@ -54,13 +54,13 @@ async function findFaults(studentId) {
     const faults = await faultsService.findAll();
     const studentFaults = faults.filter((fault) => fault.student_id === studentId);
 
-    const faultsByIndicator = studentFaults.reduce((store, { indicator, date }) => {
+    const faultsByIndicator = studentFaults.reduce((store, { indicator, date, group_id }) => {
       if (!store.hasOwnProperty(indicator)) {
         return {
           ...store,
           [indicator]: {
             numberFaults: 1,
-            faults: [...[{ indicator, date }]],
+            faults: [...[{ indicator, date, group_id }]],
           },
         };
       }
@@ -72,7 +72,7 @@ async function findFaults(studentId) {
         ...store,
         [indicator]: {
           numberFaults: newFaults,
-          faults: [...faults, { indicator, date }],
+          faults: [...faults, { indicator, date, group_id }],
         },
       };
     }, {});
