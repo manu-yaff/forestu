@@ -2,6 +2,21 @@ import faultsService from '../../faults/faults.service.js';
 import fileService from '../../files/file.service.js';
 import periodsService from '../../periods/services/periods.service.js';
 
+const studentIndicators = {
+  Inasistencia: {
+    numberFaults: 0,
+    faults: [],
+  },
+  Puntualidad: {
+    numberFaults: 0,
+    faults: [],
+  },
+  'Respeto a sus compañeros': {
+    numberFaults: 0,
+    faults: [],
+  },
+};
+
 async function findAll() {
   try {
     const students = await fileService.read('./students.json');
@@ -64,7 +79,10 @@ async function findFaults(studentId) {
 
     return {
       student_id: studentId,
-      faults_by_indicator: faultsByIndicator,
+      faults_by_indicator:
+        Object.keys(faultsByIndicator).length > 0
+          ? { ...studentIndicators, ...faultsByIndicator }
+          : studentIndicators,
     };
   } catch (error) {
     throw error;
